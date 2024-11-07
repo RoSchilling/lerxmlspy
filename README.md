@@ -1,4 +1,4 @@
-# Pacote Ler XML SETRABH python - lerxmlspy
+# Pacote Ler XML python - lerxmlspy
 
 ## Sobre o Pacote
 O pacote consta com duas funções principais sendo:
@@ -20,6 +20,6 @@ O pacote consta com duas funções principais sendo:
       3. list_manter (opcional) list: Se não for informada utiliza a lista padronizada
       4. dic_names (opcional) dict: Se não for informada utiliza o dicionário padrão
 
-   ### Exemplo
+   #### Exemplo
    ```python
    lerxmlspy.DataFrameFromXML(caminho_arquivo)

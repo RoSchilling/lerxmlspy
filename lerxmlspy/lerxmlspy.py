@@ -186,13 +186,8 @@ dic_names = {
 }
 
 class LerXML:
-    def __init__(self, 
-                 path: str):
-        self.path = path
-
-
-    def retorna_chave_acesso(self, 
-                             xml_content: bytes) -> str:
+    @staticmethod
+    def retorna_chave_acesso(xml_content: bytes) -> str:
         str_xml = etree.fromstring(xml_content)
 
         # Converte o XML do formato string para o uma Element Tree
@@ -222,10 +217,9 @@ class LerXML:
                 return xCA
             else:
                 xCA = 'Chave NFe não encontrada'
-
-    def DataFrameFromXML(self, 
-                         path: bytes, 
-                         nome_documento = None: str, 
+    @staticmethod
+    def DataFrameFromXML(path: bytes, 
+                         nome_documento: str = None, 
                          list_manter:list = cols_manter, 
                          dic_names: dict = dic_names ) -> pd.DataFrame:           
         # abre o arquivo xml
@@ -264,5 +258,5 @@ class LerXML:
             df['nome_documento'] = nome_documento
         
         # esta etapa esta em desenvolvimento >:(
-        df['chave_acesso_xml'] = self.retorna_chave_acesso(xml_content)
+        df['chave_acesso_xml'] = LerXML.retorna_chave_acesso(xml_content)
         return df
